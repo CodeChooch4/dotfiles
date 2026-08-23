@@ -11,6 +11,7 @@ source "$ZSH/oh-my-zsh.sh"
 alias zshconfig="${EDITOR:-nvim} ~/.zshrc"
 alias ohmyzsh="${EDITOR:-nvim} ~/.oh-my-zsh"
 alias pn=pnpm
+alias npm='echo "npm sucks, use pnpm"; false'
 alias vim=nvim
 alias vi=nvim
 alias lg="lazygit"
