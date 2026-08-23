@@ -1,0 +1,13 @@
+# Exclude plugin directories - TPM will manage these
+plugins/
+
+# Exclude task tracking file
+.tasks
+
+# OS-specific files
+.DS_Store
+*~
+
+# Backup files
+*.bak
+*.orig
