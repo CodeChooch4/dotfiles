@@ -1,0 +1,27 @@
+services:
+  windows:
+    image: dockurr/windows
+    container_name: omarchy-windows
+    environment:
+      VERSION: "11"
+      USERNAME: "__WIN_USER__"
+      PASSWORD: "__WIN_PASS__"
+      RAM_SIZE: "16G"
+      CPU_CORES: "6"
+      DISK_SIZE: "256G"
+      TZ: "America/Los_Angeles"
+      ARGUMENTS: "-rtc base=localtime,clock=host,driftfix=slew"
+    devices:
+      - /dev/kvm
+      - /dev/net/tun
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - 127.0.0.1:8006:8006
+      - 127.0.0.1:3389:3389/tcp
+      - 127.0.0.1:3389:3389/udp
+    volumes:
+      - /home/tdugan/.windows:/storage
+      - /home/tdugan/Windows:/shared
+    restart: unless-stopped
+    stop_grace_period: 2m
