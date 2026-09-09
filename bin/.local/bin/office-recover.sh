@@ -9,6 +9,8 @@ declare -A L=( [Outlook]=outlook-o365 [Teams]=ms-teams [Excel]=excel-o365 )
 has_class "com.mitchellh.ghostty" || { setsid ghostty >/dev/null 2>&1 & }
 has_class "google-chrome" || { setsid google-chrome-stable >/dev/null 2>&1 & }
 has_re "whatsapp" || { setsid omarchy-launch-webapp https://web.whatsapp.com/ >/dev/null 2>&1 & }
+has_class "org.gnome.Nautilus" || { setsid nautilus >/dev/null 2>&1 & }
+has_re "youtube" || { setsid omarchy-launch-webapp https://www.youtube.com/ >/dev/null 2>&1 & }
 launched=0
 present Outlook || { setsid ~/.local/bin/winapps outlook-o365 >/dev/null 2>&1 & wait_for Outlook 20; launched=1; }
 for name in Teams Excel; do
