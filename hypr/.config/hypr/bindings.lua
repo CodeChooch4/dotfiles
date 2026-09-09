@@ -32,3 +32,5 @@ hl.unbind("SUPER + SHIFT + O")
 o.bind("SUPER + SHIFT + O", "Snap Office windows to workspaces", hl.dsp.exec_cmd("/home/tdugan/.local/bin/office-layout.sh"))
 
 o.bind("SUPER + CTRL + SHIFT + O", "Recover WinApps + restore big 3", hl.dsp.exec_cmd("/home/tdugan/.local/bin/office-recover.sh"))
+
+o.bind("SUPER + CTRL + SHIFT + E", "Launch Excel VM", hl.dsp.exec_cmd("/home/tdugan/.local/bin/excel-vm.sh"))

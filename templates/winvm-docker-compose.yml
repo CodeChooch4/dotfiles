@@ -23,5 +23,5 @@ services:
     volumes:
       - /home/tdugan/.windows:/storage
       - /home/tdugan/Windows:/shared
-    restart: unless-stopped
+    restart: "no"
     stop_grace_period: 2m
