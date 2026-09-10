@@ -14,5 +14,17 @@ gaddr=$(hyprctl clients -j | jq -r '.[]|select(.class=="com.mitchellh.ghostty")|
 [ -n "$gaddr" ] && move 7 "$gaddr"; sleep 0.3
 if [ -n "$naddr" ]; then
   cw=$(hyprctl clients -j | jq -r --arg a "$naddr" '.[]|select(.address==$a)|.size[0]')
-  hyprctl dispatch "hl.dsp.window.resize({ x = $((541 - cw)), y = 0, relative = true, window = \"address:$naddr\" })"
+  hyprctl dispatch "hl.dsp.window.resize({ x = $((341 - cw)), y = 0, relative = true, window = \"address:$naddr\" })"
+fi
+
+# --- WS2: WhatsApp right, Telegram left ---
+waddr=$(hyprctl clients -j | jq -r '.[]|select(.class|test("whatsapp";"i"))|.address'|head -1)
+taddr=$(hyprctl clients -j | jq -r '.[]|select(.class|test("telegram";"i"))|.address'|head -1)
+if [ -n "$waddr" ] && [ -n "$taddr" ]; then
+  wx=$(hyprctl clients -j | jq -r --arg a "$waddr" '.[]|select(.address==$a)|.at[0]')
+  tx=$(hyprctl clients -j | jq -r --arg a "$taddr" '.[]|select(.address==$a)|.at[0]')
+  if [ "$wx" -lt "$tx" ]; then
+    hyprctl dispatch focuswindow "address:$waddr"
+    hyprctl dispatch swapwindow r
+  fi
 fi
