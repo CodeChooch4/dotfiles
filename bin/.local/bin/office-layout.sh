@@ -9,7 +9,7 @@ mv_re 4 "teams.microsoft"
 mv_re 5 "music.youtube"
 for a in $(hyprctl clients -j | jq -r '.[]|select(.class|test("youtube";"i"))|select(.class|test("music";"i")|not)|.address'); do move 6 "$a"; done
 naddr=$(hyprctl clients -j | jq -r '.[]|select(.class=="org.gnome.Nautilus")|.address' | head -1)
-gaddr=$(hyprctl clients -j | jq -r '.[]|select(.class=="com.mitchellh.ghostty")|.address' | head -1)
+gaddr=$(hyprctl clients -j | jq -r '.[]|select(.class=="foot")|.address' | head -1)
 [ -n "$naddr" ] && move 7 "$naddr"; sleep 0.2
 [ -n "$gaddr" ] && move 7 "$gaddr"; sleep 0.3
 if [ -n "$naddr" ]; then

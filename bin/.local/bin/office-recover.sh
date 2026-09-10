@@ -8,7 +8,7 @@ has_re "web.whatsapp" || web "https://web.whatsapp.com/"
 has_re "music.youtube" || web "https://music.youtube.com/"
 has_re "www.youtube" || web "https://www.youtube.com/"
 has_cls "google-chrome" || { setsid google-chrome-stable >/dev/null 2>&1 & }
-has_cls "com.mitchellh.ghostty" || { setsid ghostty >/dev/null 2>&1 & }
+has_cls "foot" || { setsid foot >/dev/null 2>&1 & }
 has_cls "org.gnome.Nautilus" || { setsid nautilus >/dev/null 2>&1 & }
 has_re "telegram" || { setsid Telegram >/dev/null 2>&1 & }
 sleep 3
